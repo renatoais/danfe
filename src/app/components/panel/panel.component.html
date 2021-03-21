@@ -1,0 +1,26 @@
+<div class="po-row">  
+    <po-widget class="po-lg-11 po-mb-7" >
+      <div class="po-font-text-bold">Cliente:</div>  
+      <div class="po-font-text-bold">CNPJ:</div>
+      <div class="po-font-text-bold">Cidade:</div>
+      <div class="po-font-text-bold">Chave: {{chvnfe}}</div>
+      <div class="po-font-text-bold">Numero: {{NumNfe}}</div>
+      <div class="po-font-text-bold">Serie: {{NumSerie}}</div>
+    </po-widget>
+ </div>   
+    <po-divider class="po-md-11"></po-divider>
+
+    <div class="container" style="text-align: center;">
+        <po-widget class="po-lg-11 po-mb-7" >
+        <div class="po-row" style="text-align: center;">
+          <po-progress class="po-md-11" p-text="" p-info="Download do Arquivo" p-value="30">
+        </po-progress>
+        </div>
+        <div class="po-row">
+         &nbsp;&nbsp;&nbsp; <po-button p-label="  Download Danfe em PDF  "
+          p-icon="po-icon po-icon-pdf"
+          p-type="primary"
+          (p-click)="DownloadNfe()"> </po-button>
+        </div>
+        </po-widget>
+  </div>
