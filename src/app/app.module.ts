@@ -10,7 +10,8 @@ import { TopComponent } from './components/top/top.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { BottomComponent } from './components/bottom/bottom.component';
 import { PoProgressModule } from '@po-ui/ng-components';
-import { DanfeService } from './danfe.service';
+
+
 
 
 @NgModule({
@@ -18,8 +19,7 @@ import { DanfeService } from './danfe.service';
     AppComponent, 
     TopComponent,
     PanelComponent,
-    BottomComponent,
-    DanfeService
+    BottomComponent
   ],
   imports: [
     BrowserModule,

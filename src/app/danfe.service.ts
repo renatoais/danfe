@@ -20,6 +20,7 @@ getFile(param1,param2) {
   
   return window.open(`${this.ApiRest}${param1}&hash=${param2}`,"_self")
 
+
  } 
 }
 
