@@ -7,12 +7,18 @@ import { PoNotificationService } from '@po-ui/ng-components';
   selector: 'app-panel',
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.css'],
-  providers:[DanfeService]
+  providers:[DanfeService,PoNotificationService]
 })
 
 
 export class PanelComponent implements OnInit {
-  
+  action: boolean;
+  actionLabel: string;
+  message: string;
+  orientation: number;
+  type: number;
+  duration: number;
+
   public queryString  = window.location.search;
   public urlParams    = new URLSearchParams(this.queryString);
   public chvnfe   	  = this.urlParams.get('chvNFe')
@@ -25,6 +31,7 @@ export class PanelComponent implements OnInit {
   public gifDisabled2:boolean =true
   public progressBarValue = 0;
 
+
   get progressBarInfo() {
     if (this.progressBarValue == 0){
     return `${this.progressBarValue}% / 100%`;
@@ -35,19 +42,26 @@ export class PanelComponent implements OnInit {
     }
   }
 
-  constructor(public danfeservice:DanfeService ,public poNotification: PoNotificationService ) {}
+  constructor(public danfeservice:DanfeService ,private poNotification: PoNotificationService ) {}
 
   ngOnInit(): void {
   }
 
   finishEdition(n) {
+  
+    const poNotification: any = {
+      message: "Arquivo gerado com sucesso",
+      orientation: 'top',
+      duration: 5000
+    };
+
     if (n==1){
     this.buttonDisabled = true;
     }else{
       this.buttonDisabled = false;
       this.gifDisabled2 = false
       this.gifDisabled = true
-      this.poNotification.success('Arquivo gerado com sucesso!')
+      this.poNotification.success(poNotification)
     }
     
     }
