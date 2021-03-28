@@ -1,11 +1,46 @@
 <div class="po-row">  
     <po-widget class="po-lg-11 po-mb-7" >
-      <div class="po-font-text-bold">Cliente:</div>  
-      <div class="po-font-text-bold">CNPJ:</div>
-      <div class="po-font-text-bold">Cidade:</div>
-      <div class="po-font-text-bold">Chave: {{chvnfe}}</div>
-      <div class="po-font-text-bold">Numero: {{NumNfe}}</div>
-      <div class="po-font-text-bold">Serie: {{NumSerie}}</div>
+      <div class="po-row"> <div class="po-lg-1">
+        <div class="po-font-text-bold">CLIENTE: </div></div>  
+        <div class="po-lg-0">
+          <div class="po-font-text">{{nome}}</div></div>
+      </div>
+      <div class="po-row"> <div class="po-lg-1">
+        <div class="po-font-text-bold">CNPJ/CPF: </div></div>  
+        <div class="po-lg-0">
+          <div class="po-font-text">{{cgc}}</div></div>
+      </div>
+      <div class="po-row"> <div class="po-lg-1">
+        <div class="po-font-text-bold">CIDADE/UF:</div></div>  
+        <div class="po-lg-0">
+          <div class="po-font-text">{{Municipio}} / {{uf}}</div></div>
+      </div>
+      <div class="po-row"> <div class="po-lg-1">
+        <div class="po-font-text-bold">NÚMERO:</div></div>  
+        <div class="po-lg-0">
+          <div class="po-font-text">{{NumNfe}} - {{NumSerie}}</div></div>
+      </div>
+      <div class="po-row"> <div class="po-lg-1">
+        <div class="po-font-text-bold">EMISSÃO:</div></div>  
+        <div class="po-lg-0">
+          <div class="po-font-text">{{datanfe}}</div></div>
+      </div>
+      <div class="po-row"> <div class="po-lg-1">
+        <div class="po-font-text-bold">CHAVE:</div></div>  
+        <div class="po-lg-0">
+          <div class="po-font-text">{{chvnfe}}</div></div>
+      </div>
+      <div class="po-row"> <div class="po-lg-1">
+        <div class="po-font-text-bold">PROTOCOLO:</div></div>  
+        <div class="po-lg-0">
+          <div class="po-font-text">{{protocolo}}</div></div>
+      </div>
+        <br>
+      <div class="po-row"> <div class="po-lg-10">
+        <div class="po-font-text-small"> Para verificar a autorização da SEFAZ referente à nota acima mencionada, acesse o site
+          <a href="http://www.nfe.fazenda.gov.br/portal" target="_blank">http://www.nfe.fazenda.gov.br/portal</a></div></div>  
+      </div>
+
     </po-widget>
  </div>   
  

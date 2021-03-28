@@ -1,7 +1,9 @@
+import { Infonfe } from './../../models/infonfe';
 import { Component, OnInit } from '@angular/core'
 import { DanfeService } from './../../danfe.service';
 
 import { PoNotificationService } from '@po-ui/ng-components';
+
 
 @Component({
   selector: 'app-panel',
@@ -30,7 +32,16 @@ export class PanelComponent implements OnInit {
   public gifDisabled:boolean = true
   public gifDisabled2:boolean =true
   public progressBarValue = 0;
-
+  
+  public aInfo : Infonfe[]
+  public info = {}
+ 
+  public Municipio:string = ''
+  public datanfe: string  = ''
+  public cgc: string      = ''
+  public nome: string     = ''
+  public uf: string       = ''
+  public protocolo: number = 0
 
   get progressBarInfo() {
     if (this.progressBarValue == 0){
@@ -42,9 +53,10 @@ export class PanelComponent implements OnInit {
     }
   }
 
-  constructor(public danfeservice:DanfeService ,private poNotification: PoNotificationService ) {}
+  constructor(public danfeservice:DanfeService ,private poNotification: PoNotificationService  ) {}
 
   ngOnInit(): void {
+     this.GetInfo()
   }
 
   finishEdition(n) {
@@ -85,6 +97,46 @@ updateProgress() {
     }
   }, 90);
 }
+
+GetInfo(): void {
+  this.danfeservice.getinfonfe(this.chvnfe,this.hash).subscribe((aInfo:Infonfe[]) => {
+    this.aInfo = aInfo;
+    this.info=Object.values(this.aInfo)
+    
+    if (this.info[2] !== '' ) { ///Se existir CNPJ 
+      this.Municipio = this.info[0]
+      this.datanfe = this.info[1]
+      this.cgc = this.info[2]
+      this.nome = this.info[3]
+      this.uf  = this.info[4]
+      this.protocolo = this.info[5]
+      this.datanfe = this.datanfe.substring(6,9)+'/'+this.datanfe.substring(4,6)+'/'+this.datanfe.substring(0,4)
+      console.log(this.cgc.length)
+      this.cgc = this.formatcpfCnpj(this.cgc)
+
+    }
+  });
+
+}
+
+public formatcpfCnpj(v){
+ 
+  v=v.replace(/\D/g,"")
+
+  if (v.length <= 12) { //CPF
+      v=v.replace(/(\d{3})(\d)/,"$1.$2")
+      v=v.replace(/(\d{3})(\d)/,"$1.$2")
+      v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+
+  } else { //CNPJ
+
+      v=v.replace(/^(\d{2})(\d)/,"$1.$2")
+      v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+      v=v.replace(/\.(\d{3})(\d)/,".$1/$2")
+      v=v.replace(/(\d{4})(\d)/,"$1-$2")
+  }
+    return v
+  }
 
 
 }
