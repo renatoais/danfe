@@ -10,6 +10,7 @@ import { TopComponent } from './components/top/top.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { BottomComponent } from './components/bottom/bottom.component';
 import { PoProgressModule } from '@po-ui/ng-components';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -25,7 +26,8 @@ import { PoProgressModule } from '@po-ui/ng-components';
     BrowserModule,
     BrowserAnimationsModule,
     PoModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
