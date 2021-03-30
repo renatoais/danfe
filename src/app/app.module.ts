@@ -11,6 +11,7 @@ import { PanelComponent } from './components/panel/panel.component';
 import { BottomComponent } from './components/bottom/bottom.component';
 import { PoProgressModule } from '@po-ui/ng-components';
 import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './components/main/main.component';
 
 
 
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent, 
     TopComponent,
     PanelComponent,
-    BottomComponent
+    BottomComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
